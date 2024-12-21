@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CustomerSupportManagementSystemApplication.Models.Tickets>
+
+<h2>My Tickets</h2>
+
+<a href="@Url.Action("CreateTicket", "Home", new { area = "Customer" })">Create New Ticket</a>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ticket ID</th>
+            <th>Issue</th>
+            <th>Status</th>
+            <th>Category</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>@ticket.TicketId</td>
+                <td>@ticket.Issue</td>
+                <td>@ticket.Status</td>
+                <td>@ticket.Category</td>
+                <td>@ticket.CreatedDate.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("DeleteTicket", "Home",new { area = "Customer" })" class="btn btn-link">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

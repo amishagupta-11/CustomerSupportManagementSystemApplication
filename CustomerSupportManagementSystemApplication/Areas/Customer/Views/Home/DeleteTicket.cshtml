@@ -1,0 +1,16 @@
+﻿@model CustomerSupportManagementSystemApplication.Models.Tickets
+
+<h2>Delete Ticket</h2>
+
+<p>Are you sure you want to delete the following ticket?</p>
+
+<ul>
+    <li><strong>Issue:</strong> @Model.Issue</li>
+    <li><strong>Category:</strong> @Model.Category</li>
+    <li><strong>Status:</strong> @Model.Status</li>
+</ul>
+
+<form asp-action="DeleteTicket" asp-route-id="@Model.TicketId" method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

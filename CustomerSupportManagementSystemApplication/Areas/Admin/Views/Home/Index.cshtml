@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CustomerSupportManagementSystemApplication.Models.Tickets>
+
+<h2>Tickets</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ticket ID</th>
+            <th>Issue</th>
+            <th>Status</th>
+            <th>Category</th>
+            <th>Created Date</th>
+            <th>Last Updated Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>@ticket.TicketId</td>
+                <td>@ticket.Issue</td>
+                <td>@ticket.Status</td>
+                <td>@ticket.Category</td>
+                <td>@ticket.CreatedDate.ToShortDateString()</td>
+                <td>@ticket.LastUpdatedDate?.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

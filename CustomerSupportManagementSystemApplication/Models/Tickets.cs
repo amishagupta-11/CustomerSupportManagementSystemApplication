@@ -20,7 +20,7 @@ namespace CustomerSupportManagementSystemApplication.Models
         /// This field is required.
         /// </summary>
         [Required]
-        public string? Issue { get; set; }
+        public string Issue { get; set; }
 
         /// <summary>
         /// Gets or sets the current status of the ticket.

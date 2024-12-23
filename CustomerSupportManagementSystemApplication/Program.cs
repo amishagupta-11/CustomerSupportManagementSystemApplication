@@ -38,26 +38,30 @@ namespace CustomerSupportManagementSystemApplication
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-               name: "default",
-               pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapAreaControllerRoute(
+            name: "Admin",
+            areaName: "Admin",
+            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            );
 
             app.MapAreaControllerRoute(
-                name: "Admin",
-                 areaName: "Admin",
-            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
-            app.MapAreaControllerRoute(
-               name: "Customer",
+                name: "Customer",
                 areaName: "Customer",
-           pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-               );
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            );
+
             app.MapAreaControllerRoute(
-               name: "SupportAgent",
+                name: "SupportAgent",
                 areaName: "SupportAgent",
-            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-               );
-                    
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            );
+
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}"
+            );
+
+
 
             app.Run();
         }

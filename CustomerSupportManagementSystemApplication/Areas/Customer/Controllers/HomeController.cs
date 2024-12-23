@@ -52,10 +52,15 @@ namespace CustomerSupportManagementSystemApplication.Areas.Customer.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTicket(Tickets ticket)
         {
-            ticket.CreatedDate = DateTime.UtcNow;
-            ticket.Status = "Open";
-            await _ticketService.CreateTicketAsync(ticket);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                ticket.CreatedDate = DateTime.UtcNow;
+                ticket.Status = "Open";
+                await _ticketService.CreateTicketAsync(ticket);
+                return RedirectToAction(nameof(Index));
+            }
+            return BadRequest("Some data is not filled");
+
         }
 
         /// <summary>

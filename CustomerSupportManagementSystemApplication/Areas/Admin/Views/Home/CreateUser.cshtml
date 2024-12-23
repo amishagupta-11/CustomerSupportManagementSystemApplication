@@ -1,7 +1,7 @@
 ﻿@model CustomerSupportManagementSystemApplication.Models.Users
 
 <h2>Create User</h2>
-<form asp-action="CreateUser" method="post">
+<form asp-area="Admin" asp-action="CreateUser" method="post">
     <div class="form-group">
         <label asp-for="Name">Name</label>
         <input asp-for="Name" class="form-control" />

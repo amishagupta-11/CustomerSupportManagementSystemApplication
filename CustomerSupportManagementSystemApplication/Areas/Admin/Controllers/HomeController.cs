@@ -70,7 +70,7 @@ namespace CustomerSupportManagementSystemApplication.Areas.Admin.Controllers
                 user.CreatedDate = DateTime.UtcNow;
                 await _userService.CreateUserAsync(user);
 
-                return RedirectToAction(nameof(ManageUsers));
+                return RedirectToAction("ManageUsers");
             }
 
             return View(user);

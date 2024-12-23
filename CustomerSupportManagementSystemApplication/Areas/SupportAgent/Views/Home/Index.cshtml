@@ -25,9 +25,10 @@
                 <td>@ticket.CreatedDate.ToShortDateString()</td>
                 <td>@ticket.LastUpdatedDate?.ToShortDateString()</td>
                 <td>
-                    <a href="@Url.Action("EditTicket", "Home",new { area = "Support Agent" })" class="btn btn-link">Edit</a>
+                    <a href="@Url.Action("EditTicket", "Home",new { area = "SupportAgent" })" class="btn btn-link">Edit</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<link rel="stylesheet" href="~/css/TableStyles.css" />
